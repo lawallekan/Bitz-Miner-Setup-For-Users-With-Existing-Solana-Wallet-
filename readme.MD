@@ -71,28 +71,40 @@ solana config set --url https://eclipse.helius-rpc.com/
 ## 🔑 Step 5: Import Your Existing Wallet
 
 ### Option A: Import Using Seed Phrase
-
-```bash
-solana-keygen recover
-```
-
-- Choose option `0` (prompt for seed phrase)
-- Enter your **seed phrase**
-- Press Enter to save to default path (`~/.config/solana/id.json`)
+If what you have is your **private key** (either as a raw string or JSON format), here's how you can import it into the Solana CLI and continue with the setup.
 
 ---
 
-### Option B: Import Using Private Key JSON File
+## 🔑 How to Import Wallet Using Your **Private Key**
 
-1. Move your private key JSON to Solana CLI folder:
-```bash
-mv your_id.json ~/.config/solana/id.json
+### ✅ If it's a **JSON array** (like this):
+```json
+[38, 199, 111, 55, ..., 12]
 ```
 
-2. Or configure Solana to use it directly:
+1. Create a new keypair file using a text editor:
 ```bash
-solana config set --keypair /full/path/to/your_id.json
+nano ~/.config/solana/id.json
 ```
+
+2. Paste the entire JSON array of your private key into the file, then:
+   - Press `CTRL + O` to save
+   - Press `Enter`
+   - Press `CTRL + X` to exit
+
+3. Set the keypair path in Solana config:
+```bash
+solana config set --keypair ~/.config/solana/id.json
+```
+
+4. Confirm:
+```bash
+solana config get
+```
+
+You should now see your public key and keypair path.
+
+---
 
 ✅ Confirm with:
 ```bash
