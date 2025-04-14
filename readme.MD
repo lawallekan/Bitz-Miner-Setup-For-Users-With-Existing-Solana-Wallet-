@@ -1,6 +1,6 @@
 
 
-```markdown
+```
 # 🚀 Bitz Miner Setup (For Users With Existing Solana Wallet)
 
 This guide is for users who already have a **Solana wallet** (e.g. Backpack, Phantom, Solflare) and want to import it into the terminal instead of creating a new one.
